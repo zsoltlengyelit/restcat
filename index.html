@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="restcat" ng-csp>
+<head>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<link rel="stylesheet" type="text/css" href="style/gaia/headers.css" />
+<link rel="stylesheet" type="text/css" href="style/gaia/lists.css" />
+<link rel="stylesheet" type="text/css" href="style/gaia/input_areas.css" />
+<link rel="stylesheet" type="text/css" href="style/gaia/buttons.css" />
+<link rel="stylesheet" type="text/css" href="style/gaia/switches.css" />
+<link rel="stylesheet" type="text/css" href="style/gaia/status.css" />
+<link rel="stylesheet" type="text/css" href="style/gaia/toolbars.css" />
+<link rel="stylesheet" type="text/css" href="style/gaia/app.css" />
+<!-- <link rel="stylesheet" href="style/app.css"> -->
+
+<script src="js/lib/angular.1.2.1.min.js"></script>
+<script src="js/lib/angular-cookies.min.js"></script>
+<script src="js/lib/angular-translate.js"></script>
+<script src="js/lib/angular-translate-storage-cookie.js"></script>
+<script src="js/lib/angular-translate-storage-local.js"></script>
+<!-- <script src="js/lib/jquery.js"></script>-->
+
+<!-- <script src="js/lib/jquery.xdomainajax.js"></script> -->
+<script src="js/app/app.js"></script>
+<script src="js/app/controllers.js"></script>
+
+</head>
+
+<body  role="application">
+
+	<section role="region" id="list-view" ng-controller="QueryCtrl">
+		<header>
+			<menu type="toolbar">
+				<button id="settings-btn">
+					<span class="icon icon-settings" translate="settings">settings</span>
+				</button>
+
+				<button class="recommended" ng-click="send()">
+					<span class="" translate="send">send</span>
+				</button>
+
+			</menu>
+			<h1 translate="app_name">REST Cat</h1>
+		</header>
+		
+		<header>
+				<h2 translate="basic">basic</h2>
+		</header>
+		<article id="appList" data-type="list">
+			
+			<ul>
+				<li>
+					<p>
+						<input type="text" ng-model="server"
+							placeholder="{{ 'server' | translate }}" />
+					</p>
+				</li>
+				<!-- <li><a href="#">
+							<aside>
+								<img src="style/images/default.png">
+							</aside>
+							<aside class="pack-end install"></aside>
+							<p>App 2</p>
+							<p>App developer</p>
+					</a></li>
+					 -->
+				<li>
+					<p>
+						<input type="text" ng-model="path"
+							placeholder="{{ 'path' | translate }}" />
+					</p>
+				</li>
+				
+				<li>
+					<select ng-model="method" ng-options="name for name in methods"></select>
+				</li>
+			</ul>
+
+		</article>
+		
+		<article data-type="list">
+			<ul>
+				<li>
+					<p>
+						<span ng-bind="statusCode"></span>
+						<span ng-bind="statusText"></span>
+					</p>
+				</li>				
+			</ul>
+			<pre ng-bind="queryResult"></pre>
+		</article>
+
+		<footer>
+			<div role="toolbar">
+			</div>
+		</footer>
+	</section>
+
+	<section role="region" id="settings-view"
+		class="move-down skin-organic" ng-controller="SettingsCtrl">
+		<header>
+			<button ng-click="closeSettings()" id="close-btn">
+				<span class="icon icon-close">close</span>
+			</button>
+			<menu type="toolbar">				
+			</menu>
+			<h1 translate="settings">Settings</h1>
+		</header>
+		<article>
+			<form>
+				<p>
+					<select ng-model="language" ng-change="changeLanguage()"
+						ng-options="lang as name for (lang, name) in supportedLanguages">
+					</select>
+				</p>				
+			</form>
+		</article>
+	</section>
+
+</body>
+</html>

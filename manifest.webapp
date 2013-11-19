@@ -1,0 +1,28 @@
+{
+  "version": "0.1",
+  "name": "REST Cat",
+  "description": "REST client for developers",
+  "launch_path": "/index.html",
+  "type": "privileged",
+  "icons": {
+    "16": "/img/icons/app-icon-16.png",
+    "48": "/img/icons/app-icon-48.png",
+    "64": "/img/icons/app-icon-64.png",
+    "128": "/img/icons/app-icon-128.png"
+  },
+  "developer": {
+    "name": "Zsolt Lengyel",
+    "url": "http://lengyelzsolt.com",
+    "email": "zsolt.lengyel.it@gmail.com"
+  },
+  "fullscreen": "false",
+  "installs_allowed_from": [
+    "*"
+  ],
+  "permissions": {
+    "systemXHR": {},
+    "network-http": {},
+    "network-tcp": {}
+  },
+  "default_locale": "en"
+}
