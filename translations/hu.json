@@ -1,7 +1,11 @@
 {
 	"app_name" : "REST Cat",
-	"logout" : "kilépés",
+	"logout" : "Kilépés",
 	"settings" : "Beállítások",
 	"server" : "Szerver",
-	"send" : "Küldés"
+	"send" : "Küldés",
+	"header_key" : "Fejléc neve",
+	"header_value" : "Érték",
+	"add header" : "Új fejléc",
+	"result" : "Válasz"
 }

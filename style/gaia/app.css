@@ -18,6 +18,7 @@ section[role="region"] {
   right: 0;
   bottom: 0;
   background: #fff;
+  overflow: auto;
 }
 
 #settings-view {
@@ -62,4 +63,28 @@ select{
 	line-height: 1rem;
     padding-top: 0.5rem;
     font-size: 2rem;
+}
+
+.header-item td{	
+	width: 50%;
+}
+
+.header-item td.remove{
+	width: 1%;
+}
+
+.header-item td.remove button{
+	margin: auto;
+}
+
+.ng-hide {
+  
+  display:block!important;
+  position:absolute;
+  top:-9999px;
+  left:-9999px;
+}
+
+.pull-right{
+	float: right;
 }

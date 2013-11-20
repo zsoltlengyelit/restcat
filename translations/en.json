@@ -3,5 +3,9 @@
 	"logout" : "Sign out",
 	"settings" : "Settings",
 	"server" : "Server",
-	"send" : "Send"
+	"send" : "Send",
+	"header_key" : "Header name",
+	"header_value" : "Value",
+	"add header" : "Add header",
+	"result" : "Result"
 }
