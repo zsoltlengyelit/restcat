@@ -1,7 +1,7 @@
 {
-  "version": "0.1",
+  "version": "1.0",
   "name": "REST Cat",
-  "description": "REST client for developers",
+  "description": "REST client",
   "launch_path": "/index.html",
   "type": "privileged",
   "icons": {
@@ -12,10 +12,10 @@
   },
   "developer": {
     "name": "Zsolt Lengyel",
-    "url": "http://lengyelzsolt.com",
+    "url": "https://github.com/zsoltlengyelit/restcat",
     "email": "zsolt.lengyel.it@gmail.com"
   },
-  "fullscreen": "false",
+  "fullscreen": true,
   "installs_allowed_from": [
     "*"
   ],
@@ -23,6 +23,14 @@
     "systemXHR": {},
     "network-http": {},
     "network-tcp": {}
+  },
+  "locales": {
+    "en": {
+      "description": "Smart REST client with many features."
+    },
+    "hu": {
+      "description": "REST kliens alkalmazás."
+    }
   },
   "default_locale": "en"
 }

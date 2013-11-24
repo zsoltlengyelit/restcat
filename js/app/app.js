@@ -1,67 +1,71 @@
 /** Instantiate the angular module for REST Cat */
-var app = angular.module('restcat', ['ngCookies', 'pascalprecht.translate' ]);
+var app = angular.module('restcat', [ 'ngCookies', 'pascalprecht.translate', 'xc.indexedDB' ]);
 
-app.config(function($compileProvider, $translateProvider) {
+app.config(function($compileProvider, $translateProvider, $indexedDBProvider) {
 
-    //$compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|app):/); // ng 1.1
+    // $compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|app):/);   // ng 1.1
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|app):/); // ng 1.1+
-
     $translateProvider.useLoader('translationLoader', {});
 
-    $translateProvider.preferredLanguage('en');    
+    $translateProvider.preferredLanguage('en');
     $translateProvider.useLocalStorage();
+    
+    $indexedDBProvider
+    .connection('RestCATIndexedDB')
+    .upgradeDatabase(1, function(event, db, tx){
+        
+      var objStore = db.createObjectStore('history', {keyPath: 'date'});
+      objStore.createIndex('path_idx', 'path', {unique: false});
+      
+    });
 });
 
-app.factory('translationLoader', function ($http, $q) {
-    return function (options) {
-      var deferred = $q.defer();
-      
-      $http({
-        method:'GET',
-        url:'translations/' + options.key + '.json'
-      }).success(function (data) {
-        deferred.resolve(data);
-      }).error(function () {
-        deferred.reject(options.key);
-      });
-      
-      return deferred.promise;
-    };
-});
+
 
 app.value('supportedLanguages', {
-   'en' : 'english',
-   'hu' : 'magyar'
+    'en' : 'english',
+    'hu' : 'magyar'
 });
+
+// TODO map response headers to highligth.js code class
+//app.value('httpHeadersHljs', {
 //
-//app.run(['$rootScope', function($rootScope) {
+//});
+
+app.run(function() {
+
+});
+
+
 //
-//    // is the device capable of installing this app?
-//    $rootScope.hasMozApps = !!navigator.mozApps;
+// app.run(['$rootScope', function($rootScope) {
 //
-//    // if we do, check if we're already installed
-//    if ('mozApps' in navigator) {
-//      var checkIfInstalled = navigator.mozApps.getSelf();
-//      checkIfInstalled.onsuccess = function() {
-//        $rootScope.isInstalled = !!checkIfInstalled.result;
-//        $rootScope.$apply();
-//      };
-//    }
+// // is the device capable of installing this app?
+// $rootScope.hasMozApps = !!navigator.mozApps;
 //
-//    // this is installation logic
-//    $rootScope.install = function() {
-//      var host = location.href.substring(0, location.href.lastIndexOf('/'));
-//      var manifestURL = host + '/manifest.webapp';
-//      // you point mozApps.install to a manifest file
-//      var installApp = navigator.mozApps.install(manifestURL);
-//      installApp.onsuccess = function() {
-//        $rootScope.isInstalled = true;
-//        $rootScope.$apply();
-//      };
-//      installApp.onerror = function() {
-//        alert('Install failed\n\n:' + installApp.error.name);
-//      };
-//    };
+// // if we do, check if we're already installed
+// if ('mozApps' in navigator) {
+// var checkIfInstalled = navigator.mozApps.getSelf();
+// checkIfInstalled.onsuccess = function() {
+// $rootScope.isInstalled = !!checkIfInstalled.result;
+// $rootScope.$apply();
+// };
+// }
 //
-//  }]);
+// // this is installation logic
+// $rootScope.install = function() {
+// var host = location.href.substring(0, location.href.lastIndexOf('/'));
+// var manifestURL = host + '/manifest.webapp';
+// // you point mozApps.install to a manifest file
+// var installApp = navigator.mozApps.install(manifestURL);
+// installApp.onsuccess = function() {
+// $rootScope.isInstalled = true;
+// $rootScope.$apply();
+// };
+// installApp.onerror = function() {
+// alert('Install failed\n\n:' + installApp.error.name);
+// };
+// };
+//
+// }]);
 

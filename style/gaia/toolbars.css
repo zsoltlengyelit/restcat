@@ -11,7 +11,7 @@
   z-index: 1;
   background: rgba(0,0,0, 0.85);
 }
-/*
+
 [role="toolbar"] ul {
   float: left;
   list-style: none;
@@ -28,16 +28,18 @@
 }
 
 [role="toolbar"] button {
-  width: 5.5rem;
+  width: auto;
+  text-transform: uppercase;
+  font-weight: bold;
   height: 4rem;
   border: none;
-  font-size: 0;
+  font-size: 1.2rem;  
+  color: #fff;
   background: transparent no-repeat 50% 50%;
-  padding: 0;
+  padding: 0 5px;
   border-radius: 0;
 }
 
 [role="toolbar"] button:active {
   background-color: #008aaa;
 }
-*/

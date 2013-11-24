@@ -7,5 +7,9 @@
 	"header_key" : "Fejléc neve",
 	"header_value" : "Érték",
 	"add header" : "Új fejléc",
-	"result" : "Válasz"
+	"result" : "Válasz",
+	"status_code" : "Válasz kód",
+	"history" : "Előzmények",
+	"clear" : "Törlés",
+	"histroy_clear_confirm" : "Biztosan törli az előzményeket?"
 }

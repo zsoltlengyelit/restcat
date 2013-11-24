@@ -167,7 +167,7 @@ section[role="region"] > header:first-child .icon {
   float: none;
   width: 3rem;
   height: 3rem;
-  margin: 0 -1rem;
+  /*margin: 0 -1rem;*/
   background: transparent no-repeat center center;
   font-size: 0;
   overflow: hidden;
