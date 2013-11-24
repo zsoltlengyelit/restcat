@@ -6,8 +6,11 @@
   "type": "privileged",
   "icons": {
     "16": "/img/icons/app-icon-16.png",
+    "32": "/img/icons/app-icon-32.png",
     "48": "/img/icons/app-icon-48.png",
+    "60": "/img/icons/app-icon-60.png",
     "64": "/img/icons/app-icon-64.png",
+    "90": "/img/icons/app-icon-90.png",
     "128": "/img/icons/app-icon-128.png"
   },
   "developer": {
@@ -15,14 +18,14 @@
     "url": "https://github.com/zsoltlengyelit/restcat",
     "email": "zsolt.lengyel.it@gmail.com"
   },
-  "fullscreen": true,
+  "fullscreen": "true",
   "installs_allowed_from": [
     "*"
   ],
   "permissions": {
-    "systemXHR": {},
-    "network-http": {},
-    "network-tcp": {}
+    "systemXHR": {
+      "description": "For loading remote resources."
+    }
   },
   "locales": {
     "en": {
